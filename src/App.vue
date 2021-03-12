@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld v-if="!isSummit"/>
+    <Table v-if="isSummit"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import Table from './components/Table.vue'
+import { mapState} from "vuex";
 export default {
   name: 'App',
+  data(){
+    return {
+    }
+  },
   components: {
-    HelloWorld
+    HelloWorld,
+    Table
+  },
+  methods:{
+  },
+  computed: {
+    ...mapState(["isSummit"]),
   }
 }
 </script>
